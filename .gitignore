@@ -1,0 +1,12 @@
+*/obj/
+/.vs/JonasCodingTest/v15/.suo
+/.vs/JonasCodingTest/v15/
+*/bin/
+/packages/
+/WebApi/Web.Debug.*
+/WebApi/Web.Release.config
+/WebApi/WebApi.csproj.user
+/.vs/JonasCodingTest/FileContentIndex
+*.suo
+/WebApi/.vs
+/.vs/JonasCodingTest/v17/DocumentLayout.json
