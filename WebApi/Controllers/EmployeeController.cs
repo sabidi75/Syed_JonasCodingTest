@@ -74,12 +74,14 @@ namespace WebApi.Controllers
 
         // PUT api/<controller>/5
         [LogApiRequestAttribute]
-        public async Task Put(string employeeCode, [FromBody] EmployeeInfo value)
+        [Route("api/employee/{employeeCode}")]
+        public async Task<EmployeeDto> Put(string employeeCode, [FromBody] EmployeeInfo value)
         {
             try
             {
                 var item = _mapper.Map<EmployeeInfo>(value);
-                await _employeeService.SaveEmployeeAsync(item);
+                var result = await _employeeService.UpdateEmployeeAsync(employeeCode, item);
+                return _mapper.Map<EmployeeDto>(result);
             }
             catch (Exception ex)
             {
