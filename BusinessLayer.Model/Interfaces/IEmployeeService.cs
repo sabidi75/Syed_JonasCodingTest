@@ -9,7 +9,7 @@ namespace BusinessLayer.Model.Interfaces
 {
     public interface IEmployeeService
     {
-        Task<IEnumerable<EmployeeInfo>> GetAllCompaniesAsync();
+        Task<IEnumerable<EmployeeInfo>> GetAllEmployeesAsync();
         Task<EmployeeInfo> GetEmployeeByCodeAsync(string EmployeeCode);
         Task<EmployeeInfo> SaveEmployeeAsync(EmployeeInfo EmployeeInfo);
         Task<EmployeeInfo> UpdateEmployeeAsync(string EmployeeCode, EmployeeInfo EmployeeInfo);

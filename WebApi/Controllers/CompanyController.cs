@@ -41,6 +41,7 @@ namespace WebApi.Controllers
 
         // GET api/<controller>/5
         [LogApiRequestAttribute]
+        [Route("api/company/{companyCode}")]
         public async Task<CompanyDto> Get(string companyCode)
         {
             try
@@ -93,6 +94,7 @@ namespace WebApi.Controllers
 
         // DELETE api/<controller>/5
         [LogApiRequestAttribute]
+        [Route("api/company/{companyCode}")]
         public async Task Delete(string companyCode)
         {
             try

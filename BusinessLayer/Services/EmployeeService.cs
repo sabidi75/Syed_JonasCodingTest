@@ -9,43 +9,43 @@ namespace BusinessLayer.Services
 {
     public class EmployeeService : IEmployeeService
     {
-        private readonly IEmployeeRepository _EmployeeRepository;
+        private readonly IEmployeeRepository _employeeRepository;
         private readonly IMapper _mapper;
 
         public EmployeeService(IEmployeeRepository EmployeeRepository, IMapper mapper)
         {
-            _EmployeeRepository = EmployeeRepository;
+            _employeeRepository = EmployeeRepository;
             _mapper = mapper;
         }
-        public async Task<IEnumerable<EmployeeInfo>> GetAllCompaniesAsync()
+        public async Task<IEnumerable<EmployeeInfo>> GetAllEmployeesAsync()
         {
-            var res = await _EmployeeRepository.GetAllAsync();
+            var res = await _employeeRepository.GetAllAsync();
             return _mapper.Map<IEnumerable<EmployeeInfo>>(res);
         }
 
         public async Task<EmployeeInfo> GetEmployeeByCodeAsync(string EmployeeCode)
         {
-            var result = await _EmployeeRepository.GetByCodeAsync(EmployeeCode);
+            var result = await _employeeRepository.GetByCodeAsync(EmployeeCode);
             return _mapper.Map<EmployeeInfo>(result);
         }
 
         public async Task<EmployeeInfo> SaveEmployeeAsync(EmployeeInfo EmployeeInfo)
         {
             var employee = _mapper.Map<DataAccessLayer.Model.Models.Employee>(EmployeeInfo);
-            var result = await _EmployeeRepository.SaveEmployeeAsync(employee);
+            var result = await _employeeRepository.SaveEmployeeAsync(employee);
             return _mapper.Map<EmployeeInfo>(employee);
         }
 
         public async Task<EmployeeInfo> UpdateEmployeeAsync(string EmployeeCode, EmployeeInfo EmployeeInfo)
         {
             var employee = _mapper.Map<DataAccessLayer.Model.Models.Employee>(EmployeeInfo);
-            var result = await _EmployeeRepository.UpdateEmployeeAsync(EmployeeCode, employee);
+            var result = await _employeeRepository.UpdateEmployeeAsync(EmployeeCode, employee);
             return _mapper.Map<EmployeeInfo>(employee);
         }
 
         public async Task<EmployeeInfo> DeleteEmployeeAsync(string EmployeeCode)
         {
-            var result = await _EmployeeRepository.DeleteEmployeeAsync(EmployeeCode);
+            var result = await _employeeRepository.DeleteEmployeeAsync(EmployeeCode);
             return _mapper.Map<EmployeeInfo>(result);
         }
     }

@@ -29,7 +29,7 @@ namespace WebApi.Controllers
         {
             try
             {
-                var items = await _employeeService.GetAllCompaniesAsync();
+                var items = await _employeeService.GetAllEmployeesAsync();
                 return _mapper.Map<IEnumerable<EmployeeDto>>(items);
             }
             catch (Exception ex)
@@ -41,6 +41,7 @@ namespace WebApi.Controllers
 
         // GET api/<controller>/5
         [LogApiRequestAttribute]
+        [Route("api/employee/{employeeCode}")]
         public async Task<EmployeeDto> Get(string employeeCode)
         {
             try
@@ -92,6 +93,7 @@ namespace WebApi.Controllers
 
         // DELETE api/<controller>/5
         [LogApiRequestAttribute]
+        [Route("api/employee/{employeeCode}")]
         public async Task Delete(string employeeCode)
         {
             try
